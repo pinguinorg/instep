@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -16,7 +15,7 @@
                 <p class="event received">All in set!</p> <br>    
                 Today count: <div class="todaycount"></div> <br>
                 Alltime Count: <div class="alltimecount"></div> <br>
-                <button onclick="window.startcounting()">Start Counting</button> <button onclick="window.stopcounting()">Stop Counting</button>
+                <a href="javascript:window.startcounting()">Start Counting</a> <a href="javascript:window.stopcounting()">Stop Counting</a>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
