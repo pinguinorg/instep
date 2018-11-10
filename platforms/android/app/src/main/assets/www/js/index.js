@@ -1,113 +1,65 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
- function command(){
-    alert(eval(document.querySelector(".commander").value));
- }
-var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
-
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-          var success = function(message) {
-        console.log(message);
-    }
- 
-    var failure = function() {
-        alert("Error calling CordovaStepCounter Plugin");
-    }
- 
-    // Start the step counter
-    // startingOffset will be added to the total steps counted in this session.
-    // ie. say you have already recorded 150 steps for a certain activity, then
-    // the step counter records 50. The getStepCount method will then return 200.
-    var startingOffset = 0;
-    window.startcounting = function(){
-        stepcounter.start(startingOffset, function(){alert("Counting started!")}, failure);
-    };
+  document.addEventListener("deviceready", onDeviceReady, false);
+  function onDeviceReady() {
+    var prevs = 0;
+    stepcounter.getTodayStepCount(function (n){ prevs = n }, function (n){ alert("Error, \n "+ n +"\n ").then(window.close()) });
+    stepcounter.stop()
+    stepcounter.start(prevs);
+    /*
     
-    window.stopcounting = function(){
-        stepcounter.stop(function(){alert("Counting stopped!")}, failure);
-    };
-    window.todaycount = function (){
-        stepcounter.getTodayStepCount(function(a){
-            document.querySelector(".todaycount") = a;
-        }, failure);
-    }
-    window.allCount = function () {
-        stepcounter.getStepCount(function(a){
-                    document.querySelector(".alltimecount") = a;
-        }, failure);
 
-    }
-     stepcounter.getTodayStepCount(function(a){
-            document.querySelector(".todaycount") = a;
-        }, function(a){
-            console.log(a)
-        });
-setInterval(function(){stepcounter.getTodayStepCount(function(a){
-            document.querySelector(".todaycount").innerHTML = a;
-            console.log(a);
-        }, function(a){
-            console.log(a)
-        });}, 100);
-setInterval(function(){stepcounter.getStepCount(function(a){
-            document.querySelector(".alltimecount").innerHTML = a;
-            console.log(a);
-        }, function(a){
-            console.log(a)
-        });}, 100);
-    stepcounter.deviceCanCountSteps(function(){alert("Your device supported!")}, failure)
- 
-    // Get the step history (JavaScript object)
-    // sample result :
-    //{
-    //  "2015-01-01":{"offset": 123, "steps": 456},
-    //  "2015-01-02":{"offset": 579, "steps": 789}
-    //  ...
-    //}
-    stepcounter.getHistory(
+    */
+setInterval(function(){
+  document.querySelector(".history").innerHTML="";
+          stepcounter.getHistory(
         function(historyData){
-            alert(historyData);
-        },
-        failure
+          window.historyData = historyData;
+          var prop;
+for(prop in historyData) {
+    if(!historyData.hasOwnProperty(prop)) continue;
+
+    document.querySelector(".history").innerHTML=document.querySelector(".history").innerHTML+(prop + " - "+ historyData[prop].steps)+"<br/>"
+}
+        }
     );
- 
-    },
+}, 500);
+    var prevc = 0;
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+  setInterval(update,550);
+  function update(){
+    
+    // Get the amount of steps since the start command has been called
+    stepcounter.getStepCount(function(n){ if(prevc !== n){setCounter(n); prevc=n;}  console.log("2:", n)}, function(n){setCounter(n);  console.log("1:", n)});
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+  }
+  function setCounter(v){
+    var counter=$(".counter");
+    var old=counter.children(".counter-value");
+    var oldContent=old.children(".counter-value-mask");
 
-        console.log('Received Event: ' + id);
-    }
-};
-
-app.initialize();
+    var t=0.4;
+    var d=t*0.0;
+    var d2=t*0.3;
+    var padding=55;
+    var offset=5;
+    var w=old.data("w");
+    w+=padding;
+    TweenMax.to(old,t,{delay:d,x:w,ease:Quad.easeIn});
+    TweenMax.to(oldContent,t,{delay:d,x:-(w-offset),ease:Quad.easeIn});
+    setTimeout(function(){old.remove()},t*1000);
+    
+    var neu=$("<div/>").addClass("counter-value").appendTo(counter);
+    var neuContent=$("<div/>").addClass("counter-value-mask").prependTo(neu).text(v);
+    
+    w=neuContent.width();
+    neu.data("w",w);
+    neu.css({
+      width:w
+    })
+    w+=padding;
+    TweenMax.from(neu,t,{delay:d2,x:-w});
+    TweenMax.from(neuContent,t,{delay:d2,x:w-offset});
+    
+    
+    
+  }
+}
