@@ -42,7 +42,7 @@ var app = {
     // the step counter records 50. The getStepCount method will then return 200.
     var startingOffset = 0;
     window.startcounting = function(){
-        stepcounter.start(startingOffset, success, failure);
+        stepcounter.start(startingOffset, function(){alert("Counting started!")}, failure);
     };
     window.startcounting();
     window.stopcounting = function(){
@@ -54,14 +54,7 @@ var app = {
     window.allCount = function () {
         stepcounter.getStepCount(success, failure);
     }
-    alert(function(){
-    if(stepcounter.deviceCanCountSteps(success, failure)){
-
-        return "All ok!";
-    }else{
-        return "All NOT ok!";
-    }
-    })
+    stepcounter.deviceCanCountSteps(function(){alert("Your device supported!")}, failure)
  
     // Get the step history (JavaScript object)
     // sample result :
