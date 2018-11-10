@@ -46,7 +46,7 @@ for(prop in historyData) {
   function update(){
     
     // Get the amount of steps since the start command has been called
-    stepcounter.getStepCount(function(n){ if(prevc !== n){setCounter(n); prevc=n;}  console.log("2:", n)}, function(n){setCounter(n);  console.log("1:", n)});
+    stepcounter.getStepCount(function(n){ if(prevc !== n){setCounter(n); prevc=n; navigator.vibrate();}  console.log("2:", n)}, function(n){setCounter(n);  console.log("1:", n)});
 
   }
   function setCounter(v){

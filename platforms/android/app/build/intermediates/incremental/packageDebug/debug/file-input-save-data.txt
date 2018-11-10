@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Nov 10 22:32:36 EET 2018
+#Sat Nov 10 22:39:03 EET 2018
 17.baseType=DIRECTORY
 4.path=www/plugins/cordova-plugin-stepcounter/www/stepcounter.js
 8.set=ASSET
