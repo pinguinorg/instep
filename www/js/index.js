@@ -41,19 +41,27 @@ var app = {
     // ie. say you have already recorded 150 steps for a certain activity, then
     // the step counter records 50. The getStepCount method will then return 200.
     var startingOffset = 0;
-    stepcounter.start(startingOffset, success, failure);
- 
-    // Stop the step counter
-    stepcounter.stop(success, failure);
- 
-    // Get the amount of steps for today (or -1 if it no data given)
-    stepcounter.getTodayStepCount(success, failure);
-    
-    // Get the amount of steps since the start command has been called
-    stepcounter.getStepCount(success, failure);
- 
-    // Returns true/false if Android device is running >API level 19 && has the step counter API available
-    stepcounter.deviceCanCountSteps(success, failure);
+    window.startcounting = function(){
+        stepcounter.start(startingOffset, success, failure);
+    };
+    window.startcounting();
+    window.stopcounting = function(){
+        stepcounter.stop(success, failure);
+    };
+    window.todaycount = function (){
+        stepcounter.getTodayStepCount(success, failure);
+    }
+    window.allCount = function () {
+        stepcounter.getStepCount(success, failure);
+    }
+    alert(function(){
+    if(stepcounter.deviceCanCountSteps(success, failure)){
+
+        return "All ok!";
+    }else{
+        return "All NOT ok!";
+    }
+    })
  
     // Get the step history (JavaScript object)
     // sample result :
