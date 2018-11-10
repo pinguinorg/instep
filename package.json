@@ -13,13 +13,15 @@
         "cordova-android": "^7.1.2",
         "cordova-plugin-inappbrowser": "^3.0.0",
         "cordova-plugin-stepcounter": "^1.0.1",
+        "cordova-plugin-vibration": "^3.1.0",
         "cordova-plugin-whitelist": "^1.3.3"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
             "cordova-plugin-stepcounter": {},
-            "cordova-plugin-inappbrowser": {}
+            "cordova-plugin-inappbrowser": {},
+            "cordova-plugin-vibration": {}
         },
         "platforms": [
             "android"
