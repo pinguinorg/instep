@@ -49,11 +49,17 @@ var app = {
         stepcounter.stop(success, failure);
     };
     window.todaycount = function (){
-        stepcounter.getTodayStepCount(success, failure);
+        stepcounter.getTodayStepCount(function(a){
+            document.querySelector(".todaycount") = a;
+        }, failure);
     }
     window.allCount = function () {
-        stepcounter.getStepCount(success, failure);
+        stepcounter.getStepCount(function(a){
+                    document.querySelector(".alltimecount") = a;
+        }, failure);
+
     }
+
     stepcounter.deviceCanCountSteps(function(){alert("Your device supported!")}, failure)
  
     // Get the step history (JavaScript object)
@@ -65,7 +71,7 @@ var app = {
     //}
     stepcounter.getHistory(
         function(historyData){
-            success(historyData);
+            alert(historyData);
         },
         failure
     );
