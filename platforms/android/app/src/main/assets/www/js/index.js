@@ -9,7 +9,7 @@
     stepcounter.stop()
     stepcounter.start(prevs);
     window.au = function(){
-      if(confirm("Перейти на сайн разработчика?")){
+      if(confirm("Перейти на сайт разработчика?")){
        window.open('http://marinenko.rf.gd', '_system');
       }
     }
