@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Nov 10 18:22:08 EET 2018
+#Sat Nov 10 18:25:52 EET 2018
 4.path=www/cordova-js-src/plugin/android/app.js
 13.baseType=DIRECTORY
 8.set=ASSET

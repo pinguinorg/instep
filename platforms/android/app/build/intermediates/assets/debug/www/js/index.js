@@ -47,9 +47,9 @@ var app = {
     window.startcounting = function(){
         stepcounter.start(startingOffset, function(){alert("Counting started!")}, failure);
     };
-    window.startcounting();
+    
     window.stopcounting = function(){
-        stepcounter.stop(success, failure);
+        stepcounter.stop(function(){alert("Counting stopped!")}, failure);
     };
     window.todaycount = function (){
         stepcounter.getTodayStepCount(function(a){
