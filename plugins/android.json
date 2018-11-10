@@ -12,6 +12,9 @@
     },
     "cordova-plugin-stepcounter": {
       "PACKAGE_NAME": "org.pinguinorg"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "org.pinguinorg"
     }
   },
   "dependent_plugins": {}

@@ -7,6 +7,9 @@
     <feature name="CordovaStepCounter">
         <param name="android-package" value="net.texh.cordovapluginstepcounter.CordovaStepCounter" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
     <name>inStep</name>
     <description>
         The Simple StepCounter...
