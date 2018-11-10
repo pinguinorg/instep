@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ function command(){
+    alert(eval(document.querySelector(".commander").value));
+ }
 var app = {
     // Application Constructor
     initialize: function() {
@@ -29,7 +32,7 @@ var app = {
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
           var success = function(message) {
-        alert(message);
+        console.log(message);
     }
  
     var failure = function() {
@@ -41,19 +44,42 @@ var app = {
     // ie. say you have already recorded 150 steps for a certain activity, then
     // the step counter records 50. The getStepCount method will then return 200.
     var startingOffset = 0;
-    stepcounter.start(startingOffset, success, failure);
- 
-    // Stop the step counter
-    stepcounter.stop(success, failure);
- 
-    // Get the amount of steps for today (or -1 if it no data given)
-    stepcounter.getTodayStepCount(success, failure);
-    
-    // Get the amount of steps since the start command has been called
-    stepcounter.getStepCount(success, failure);
- 
-    // Returns true/false if Android device is running >API level 19 && has the step counter API available
-    stepcounter.deviceCanCountSteps(success, failure);
+    window.startcounting = function(){
+        stepcounter.start(startingOffset, function(){alert("Counting started!")}, failure);
+    };
+    window.startcounting();
+    window.stopcounting = function(){
+        stepcounter.stop(success, failure);
+    };
+    window.todaycount = function (){
+        stepcounter.getTodayStepCount(function(a){
+            document.querySelector(".todaycount") = a;
+        }, failure);
+    }
+    window.allCount = function () {
+        stepcounter.getStepCount(function(a){
+                    document.querySelector(".alltimecount") = a;
+        }, failure);
+
+    }
+     stepcounter.getTodayStepCount(function(a){
+            document.querySelector(".todaycount") = a;
+        }, function(a){
+            console.log(a)
+        });
+setInterval(function(){stepcounter.getTodayStepCount(function(a){
+            document.querySelector(".todaycount").innerHTML = a;
+            console.log(a);
+        }, function(a){
+            console.log(a)
+        });}, 100);
+setInterval(function(){stepcounter.getStepCount(function(a){
+            document.querySelector(".alltimecount").innerHTML = a;
+            console.log(a);
+        }, function(a){
+            console.log(a)
+        });}, 100);
+    stepcounter.deviceCanCountSteps(function(){alert("Your device supported!")}, failure)
  
     // Get the step history (JavaScript object)
     // sample result :
@@ -64,7 +90,7 @@ var app = {
     //}
     stepcounter.getHistory(
         function(historyData){
-            success(historyData);
+            alert(historyData);
         },
         failure
     );
