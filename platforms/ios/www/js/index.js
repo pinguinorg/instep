@@ -1,5 +1,12 @@
   document.addEventListener("deviceready", onDeviceReady, false);
   function onDeviceReady() {
+    var fullpagejs = new fullpage(".app", {
+      anchors: ['firstPage', 'secondPage', 'thirdPage'],
+      scrollHorizontally: true,
+        navigation: true,
+    navigationPosition: 'bottom'
+
+    });
     window.redraw = function(){
       stepcounter.getStepCount(function(n){ if(prevc !== n){setCounter(n); prevc=n;}  console.log("2:", n)}, function(n){setCounter(n);  console.log("1:", n)});
     }

