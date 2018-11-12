@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.pinguinorg" version="0.0.5.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>inStep</name>
+<widget id="pinguinorg.instep" version="0.0.5.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>StepCounter++</name>
     <description>
         The Simple StepCounter...
     </description>
     <author email="misha@marinenko.rf.gd" href="https://github.com/pinguinorg">
-        PinguinOrg
+        PinguinOrg: Misha Marinenko
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -48,5 +48,4 @@
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-vibration" spec="^3.1.0" />
     <engine name="android" spec="^7.1.2" />
-    <engine name="ios" spec="^4.5.5" />
 </widget>

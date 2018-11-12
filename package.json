@@ -1,6 +1,6 @@
 {
     "name": "@pinguinorg/instep",
-    "displayName": "inStep",
+    "displayName": "StepCounter++",
     "version": "1.0.0",
     "description": "The Simple StepCounter...",
     "main": "index.js",
@@ -11,7 +11,6 @@
     "license": "GPL-3.0",
     "dependencies": {
         "cordova-android": "^7.1.2",
-        "cordova-ios": "^4.5.5",
         "cordova-plugin-inappbrowser": "^3.0.0",
         "cordova-plugin-stepcounter": "^1.0.1",
         "cordova-plugin-vibration": "^3.1.0",
@@ -25,8 +24,7 @@
             "cordova-plugin-vibration": {}
         },
         "platforms": [
-            "android",
-            "ios"
+            "android"
         ]
     }
 }

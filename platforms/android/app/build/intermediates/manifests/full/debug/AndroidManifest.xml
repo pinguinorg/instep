@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.pinguinorg"
+    package="pinguinorg.instep"
     android:hardwareAccelerated="true"
-    android:versionCode="0"
-    android:versionName="0.0.0.3.3" >
+    android:versionCode="5"
+    android:versionName="0.0.5.0.0" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -32,7 +32,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true" >
         <activity
-            android:name="org.pinguinorg.MainActivity"
+            android:name="pinguinorg.instep.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
             android:label="@string/activity_name"
             android:launchMode="singleTop"

@@ -1,1 +1,1 @@
-[{"outputType":{"type":"PROCESSED_RES"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":0},"path":"resources-debug.ap_","properties":{"packageId":"org.pinguinorg","split":"","minSdkVersion":"19"}}]
+[{"outputType":{"type":"PROCESSED_RES"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":5},"path":"resources-debug.ap_","properties":{"packageId":"pinguinorg.instep","split":"","minSdkVersion":"19"}}]
