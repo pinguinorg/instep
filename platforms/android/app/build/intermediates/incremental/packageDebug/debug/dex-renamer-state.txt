@@ -1,4 +1,4 @@
-#Mon Nov 12 17:19:23 EET 2018
+#Mon Nov 12 19:17:56 EET 2018
 base.0=/Users/0x77/pinguinorg/instep/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

@@ -1,16 +1,27 @@
 document.addEventListener("deviceready", function(){
-Vue.use(VueMaterial.default)
 window.app = new Vue({
   el: ".app",
   data: {
     menuVisible: false,
     spcr_data: {
 
+    },
+    historyVisible: false
+  },
+  methods: {
+    history: function(){
+          window.spcr_arr = [];
+
+            for(var x in window.spcr_data.history){
+              window.spcr_arr.push({name:x, data: window.spcr_data.history[x]});
+            }
+            return window.spcr_arr;
     }
   }
 })
-
-
+stepcounter.stop();
+stepcounter.start();
+setInterval(function(){console.clear(); console.log(window.spcr_data.a, window.spcr_data.b, window.spcr_data.history); }, 1000)
 function bootstrapCounter(){
   stepcounter.deviceCanCountSteps(function(){}, function(){alert("Your Device is Unsupported!"); window.close();});
   window.spcr = stepcounter;
@@ -34,7 +45,7 @@ function bootstrapCounter(){
           console.log("[ERR] \n", i)
         }
     );
-        window.app.spcr_data = window.spcr_data
+        window.app.spcr_data = window.spcr_data;
   }
   setInterval(window.update, 100);
 }
